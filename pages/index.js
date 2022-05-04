@@ -182,12 +182,12 @@ function Home (props) {
           />
         ))}
       </div>
-      <div className='moving-car'>
-        <div className='sky'>
-          <div className='surface'></div>
+      <div className={styles.animatedCar}>
+        <div className={styles.sky}>
+          <div className={styles.surface}></div>
        
             <img 
-            className='car' onClick={() => setCarOn(!carOn)}
+            className={styles.car} onClick={() => setCarOn(!carOn)}
               src={carOn ? carLightsOn : carLightsOff}
               alt='car'
               title=''

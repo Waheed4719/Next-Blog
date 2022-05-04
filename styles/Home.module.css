@@ -116,9 +116,121 @@
   position: unset !important;
 }
 
-@media (max-width: 600px) {
+
+
+.animatedCar{
+  margin: 0;
+  background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+  background-repeat: no-repeat;
+  display: flex;
+  padding: 50px 0px;
+}
+
+.sky{
+  display: inline-block;
+  height: 600px;
+  width: 600px;
+  border-top-right-radius: 1000px;
+  border-bottom-right-radius: 1000px;
+  border: none;
+  background-image: url(../static/images/sky.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  box-shadow: 1px 2px 60px rgba(0,0,0,0.4);
+  position: relative;
+
+}
+
+.surface{
+  background-image: url(../static/images/land.png);
+  background-repeat: repeat-x;
+  height:140px;
+  width:2000%;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  animation: moveRight 7s linear infinite;
+ 
+}
+.car{
+  position: absolute;
+  bottom: 7.8%;
+  left: 25%;
+  height: 60px;
+  max-height: 60px;
+  animation: suspension 1s linear infinite;
+}
+
+.moveRight{
+  animation: moveRight 6s linear infinite;
+}
+.suspension{
+  animation: suspension 1s linear infinite;
+}
+
+@keyframes moveRight{
+  100%{
+      transform: translateX(-2950px);
+  }
+}
+
+@keyframes suspension{
+  100%{
+      transform: translatey(-1px);
+  }
+  50%{
+      transform: translatey(2px);
+  }
+  0%{
+      transform: translatey(-1px);
+  }
+
+}
+
+@media only screen and (max-width: 1000px){
+  .animatedCar{
+      height: 900px;
+      padding: 30px 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+  }
+  .sky{
+      display: block;
+      height: 350px;
+      width: 350px;
+      border-radius: 1000px;
+  }
+  
+  
+
+ 
+}
+
+@media only screen and (max-width: 600px){
+  .animatedCar{
+      height: 600px;
+      padding: 50px 20px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+  }
+  .sky{
+      display: block;
+      height: 300px;
+      width: 300px;
+      border-radius: 1000px;
+  }
+  
+  .car{
+      bottom: 15.5%;
+  }
   .grid {
     width: 100%;
     flex-direction: column;
   }
 }
+
