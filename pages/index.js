@@ -182,7 +182,7 @@ function Home (props) {
           />
         ))}
       </div>
-      <div className={styles.animatedCar}>
+      <div className={`${styles.animatedCar} mt-4`}>
         <div className={styles.sky}>
           <div className={styles.surface}></div>
        
@@ -193,7 +193,7 @@ function Home (props) {
               title=''
               layout='responsive'
               // loader={myLoader}
-              unoptimized={true}
+              unoptimized={"true"}
               objectFit='cover'
             />
         </div>

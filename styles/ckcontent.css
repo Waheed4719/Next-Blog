@@ -1,0 +1,69 @@
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused,
+.ck.ck-toolbar,
+.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused) {
+  border:2px solid transparent !important;
+}
+.ck.ck-editor .ck-editor__top .ck-sticky-panel .ck-toolbar{
+    border-radius: 4px !important;
+}
+.ck.ck-editor__main > .ck-editor__editable.ck-focused{
+    border: 2px solid dodgerblue !important;
+    border-radius: 4px !important;
+}
+.ck.ck-reset_all {
+  margin-bottom: 5px !important;
+}
+.ck.ck-toolbar {
+  padding: 5px;
+}
+.ck.ck-dropdown__panel {
+  border: none !important;
+}
+.ck.ck-button {
+  outline: none !important;
+}
+
+.ck.ck-button:not(.ck-disabled):not(.ck-color-grid__tile):not(.ck-on):hover,
+a.ck.ck-button:not(.ck-disabled):not(.ck-color-grid__tile):not(.ck-on):hover {
+  background: #e6e6e6 !important;
+  color: #0ea5e9 !important;
+}
+
+.ck.ck-dropdown:hover > svg,
+.ck.ck-on svg {
+  color: #0ea5e9 !important;
+}
+.ck.ck-toolbar {
+  background-color: #0ea5e9 !important;
+}
+.ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_nw,
+.ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_sw {
+  top: 125% !important;
+}
+.ck.ck-toolbar__items > button,
+.ck-ck-toolbar__items > .ck.ck-dropdown > button,
+.ck.ck-splitbutton > span button,
+.ck.ck-splitbutton > button {
+  color: #fff !important;
+}
+button.ck-on{
+    color: #0ea5e9 !important;
+}
+.ck.ck-dropdown .ck-button.ck-dropdown__button:not(.ck-on):not(:hover),
+.ck.ck-splitbutton > .ck-file-dialog-button.ck-button button:not(.ck-on):not(:hover) {
+  color: white !important;
+}
+.ck.ck-toolbar__items > button:hover svg,
+.ck-ck-toolbar__items > .ck.ck-dropdown > button:hover svg,
+.ck.ck-splitbutton > span button:hover svg,
+.ck.ck-splitbutton > button:hover svg {
+  color: #0ea5e9 !important;
+}
+
+.ck-editor__editable_inline {
+    min-height: 300px;
+}
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused{
+    box-shadow: none !important;
+}
