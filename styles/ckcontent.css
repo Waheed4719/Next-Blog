@@ -1,7 +1,8 @@
 .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused,
 .ck.ck-toolbar,
 .ck.ck-editor__main > .ck-editor__editable:not(.ck-focused) {
-  border:2px solid transparent !important;
+  border:2px solid #e5e7eb !important;
+  border-radius: 4px !important;
 }
 .ck.ck-editor .ck-editor__top .ck-sticky-panel .ck-toolbar{
     border-radius: 4px !important;
@@ -50,10 +51,10 @@ button.ck-on{
     color: #0ea5e9 !important;
 }
 .ck.ck-dropdown .ck-button.ck-dropdown__button:not(.ck-on):not(:hover),
-.ck.ck-splitbutton > .ck-file-dialog-button.ck-button button:not(.ck-on):not(:hover) {
+.ck.ck-splitbutton > .ck-file-dialog-button.ck-button button:not(.ck-off):not(:hover) {
   color: white !important;
 }
-.ck.ck-toolbar__items > button:hover svg,
+.ck.ck-toolbar__items > button:not(.ck-disabled):hover svg,
 .ck-ck-toolbar__items > .ck.ck-dropdown > button:hover svg,
 .ck.ck-splitbutton > span button:hover svg,
 .ck.ck-splitbutton > button:hover svg {
@@ -66,4 +67,8 @@ button.ck-on{
 
 .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused{
     box-shadow: none !important;
+}
+
+.ck.ck-list__item > button.ck-on{
+  color: #fff !important;
 }

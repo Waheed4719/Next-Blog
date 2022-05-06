@@ -6,93 +6,12 @@ import Image from 'next/image'
 import Card from '../components/Blogs/Card-design-2'
 import Header from '../components/Header/Header'
 import styles from '../styles/Home.module.css'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
+import {images, posts, animations} from '../assets/constants'
 
-// Our custom easing
-let easing = [0.6, -0.05, 0.01, 0.99]
-
-// animate: defines animation
-// initial: defines initial state of animation or stating point.
-// exit: defines animation when component exits
-
-// Custom variant
-const fadeInUp = {
-  initial: {
-    y: 60,
-    opacity: 0,
-    transition: { duration: 0.6, ease: easing }
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: easing
-    }
-  }
-}
-
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-}
-
-const posts = [
-  {
-    id: Math.random(100),
-    title: 'How to use Tailwind CSS',
-    description:
-      'Tailwind CSS is a utility-first CSS framework for rapidly building custom, high-fidelity, fully responsive, and accessible websites.Irure dolore officia quis nisi labore exercitation. Dolore ullamco est laborum quis labore et cillum quis non. Id eiusmod anim ex officia mollit ut id. Laboris dolore occaecat enim occaecat ut aliquip voluptate aliqua eiusmod Lorem mollit qui.',
-    image:
-      'https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1203&q=80'
-  },
-  {
-    id: Math.random(100),
-    title: 'How to use Next JS',
-    description:
-      'Tailwind CSS is a utility-first CSS framework for rapidly building custom, high-fidelity, fully responsive, and accessible websites.Irure dolore officia quis nisi labore exercitation. Dolore ullamco est laborum quis labore et cillum quis non. Id eiusmod anim ex officia mollit ut id. Laboris dolore occaecat enim occaecat ut aliquip voluptate aliqua eiusmod Lorem mollit qui.',
-    image: 'https://source.unsplash.com/random/800x600'
-  },
-  {
-    id: Math.random(100),
-    title: 'How to use Tailwind CSS',
-    description:
-      'Tailwind CSS is a utility-first CSS framework for rapidly building custom, high-fidelity, fully responsive, and accessible websites.Irure dolore officia quis nisi labore exercitation. Dolore ullamco est laborum quis labore et cillum quis non. Id eiusmod anim ex officia mollit ut id. Laboris dolore occaecat enim occaecat ut aliquip voluptate aliqua eiusmod Lorem mollit qui.',
-    image:
-      'https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1203&q=80'
-  },
-  {
-    id: Math.random(100),
-    title: 'How to use Next JS',
-    description:
-      'Tailwind CSS is a utility-first CSS framework for rapidly building custom, high-fidelity, fully responsive, and accessible websites.Irure dolore officia quis nisi labore exercitation. Dolore ullamco est laborum quis labore et cillum quis non. Id eiusmod anim ex officia mollit ut id. Laboris dolore occaecat enim occaecat ut aliquip voluptate aliqua eiusmod Lorem mollit qui.',
-    image: 'https://source.unsplash.com/random/800x600'
-  }
-]
-
-const images = [
-  'https://images.unsplash.com/photo-1564914138497-fc25707b9065?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1607379944437-d852447da9c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1494187570835-b188e7f0f26e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1607379944437-d852447da9c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1564914138497-fc25707b9065?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1607379944437-d852447da9c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1607379944437-d852447da9c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1494187570835-b188e7f0f26e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  'https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z3Jhc3NsYW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
-]
-const myLoader = ({ src }) => {
-  return src
-}
 
 const carLightsOff = '../static/images/car.png'
 const carLightsOn = '../static/images/car-lights-on.png'
+
 function Home (props) {
   const [carOn, setCarOn] = useState(true)
 
@@ -117,7 +36,8 @@ function Home (props) {
             layout='responsive'
             // loader={myLoader}
             unoptimized={true}
-            objectFit='cover'
+            // objectFit='cover'
+            
           />
           <div className='container mx-auto w-full h-full relative'>
             <div className='w-fit absolute  top-[50%] translate-y-[-50%] md:translate-y-[0%] md:top-[22%] left-0 right-0 bg-opacity-30 bg-black p-8 rounded-md mx-4'>
@@ -225,47 +145,8 @@ function Home (props) {
           ))}
         </div>
       </div>
-
-      {/* <motion.div variants={stagger} className='product-row flex flex-row mb-4'>
-        {props.products?.map(product => (
-          <Link
-            key={product.id}
-            href='/posts/[id]'
-            as={`/posts/${product.id}`}>
-            <motion.div
-              variants={fadeInUp}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className='card'>
-                {console.log(product)}
-              <span className='category'>Protein</span>
-              <motion.img
-                initial={{ x: 60, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                key={product.image}
-                src={'https://cdn.shopify.com/s/files/1/2060/6331/products/Vegan.png?v=1574882358'}
-                width={250}
-              />
-              <div className='product-info'>
-                <h4>{product.name}</h4>
-                <span>{product.price}</span>
-              </div>
-            </motion.div>
-          </Link>
-        ))}
-        </motion.div> */}
     </div>
   )
 }
 
-Home.getInitialProps = async function () {
-  const res = await fetch(
-    'https://my-json-server.typicode.com/wrongakram/demo/products'
-  )
-  const data = await res.json()
-  return {
-    products: data
-  }
-}
 export default Home
