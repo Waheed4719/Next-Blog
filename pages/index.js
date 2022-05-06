@@ -36,7 +36,7 @@ function Home (props) {
             layout='responsive'
             // loader={myLoader}
             unoptimized={true}
-            // objectFit='cover'
+            objectFit='cover'
             
           />
           <div className='container mx-auto w-full h-full relative'>
@@ -110,11 +110,7 @@ function Home (props) {
             className={styles.car} onClick={() => setCarOn(!carOn)}
               src={carOn ? carLightsOn : carLightsOff}
               alt='car'
-              title=''
-              layout='responsive'
               // loader={myLoader}
-              unoptimized={"true"}
-              objectFit='cover'
             />
         </div>
       </div>
