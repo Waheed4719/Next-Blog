@@ -1,7 +1,10 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { HYDRATE, createWrapper } from 'next-redux-wrapper'
+import authReducer from './reducers/auth'
 
-const combinedReducer = combineReducers({})
+const combinedReducer = combineReducers({
+  auth: authReducer
+})
 
 const masterReducer = (state, action) => {
   if (action.type === HYDRATE) {

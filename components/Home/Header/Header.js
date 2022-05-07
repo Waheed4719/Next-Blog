@@ -15,10 +15,10 @@ function Header () {
         </div>
         <div className='w-1/2 text-right'>
           <a
-            href='/'
+            href='/dashboard'
             className='text-gray-600 text-md font-semibold hover:text-gray-800'
           >
-            Home
+            Dashboard
           </a>
           <a
             href='/'

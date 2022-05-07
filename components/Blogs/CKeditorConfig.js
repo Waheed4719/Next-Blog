@@ -55,7 +55,6 @@ export const CONFIG = {
       '|',
       'bold',
       'italic',
-      'underline',
       'fontBackgroundColor',
       'fontColor',
       'fontSize',
@@ -67,12 +66,10 @@ export const CONFIG = {
       'mediaEmbed',
       'bulletedList',
       'numberedList',
-      'removeFormat',
       '|',
       'alignment',
       '|',
       'blockQuote',
-      'sourceEditing',
       'undo',
       'redo',
       'code',
@@ -81,13 +78,9 @@ export const CONFIG = {
       'exportPdf',
       'specialCharacters',
       'horizontalLine',
-      'MathType',
-      'ChemType',
       'strikethrough',
       'subscript',
-      'superscript',
-      'todoList',
-      'restrictedEditingException'
+      'superscript'
     ]
   },
   alignment: {
@@ -139,25 +132,27 @@ export const CONFIG = {
   licenseKey: ''
 }
 function allowNestedTables (editor) {
-  editor.model.schema.on(
-    'checkChild',
-    (evt, args) => {
-      const context = args[0]
-      const childDefinition = args[1]
+  if (editor && editor.model) {
+    editor.model.schema.on(
+      'checkChild',
+      (evt, args) => {
+        const context = args[0]
+        const childDefinition = args[1]
 
-      if (
-        context.endsWith('tableCell') &&
-        childDefinition &&
-        childDefinition.name == 'table'
-      ) {
-        // Prevent next listeners from being called.
-        evt.stop()
-        // Set the checkChild()'s return value.
-        evt.return = true
+        if (
+          context.endsWith('tableCell') &&
+          childDefinition &&
+          childDefinition.name == 'table'
+        ) {
+          // Prevent next listeners from being called.
+          evt.stop()
+          // Set the checkChild()'s return value.
+          evt.return = true
+        }
+      },
+      {
+        priority: 'highest'
       }
-    },
-    {
-      priority: 'highest'
-    }
-  )
+    )
+  }
 }
