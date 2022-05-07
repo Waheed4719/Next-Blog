@@ -4,7 +4,6 @@ import MyCKEditorUploadAdapter from '../../../components/Blogs/MyCKEditorUploadA
 import Layout from '../../../components/Dashboard/Layout'
 
 function CreatePost () {
-  const editor = useRef(null)
   const editorRef = useRef()
   const [editorLoaded, setEditorLoaded] = useState(false)
   const { CKEditor, ClassicEditor } = editorRef.current || {}
@@ -15,15 +14,20 @@ function CreatePost () {
   })
 
   const loadCkEditor = () => {
-    editorRef.current = {
-      CKEditor: require('@ckeditor/ckeditor5-react').CKEditor,
-      ClassicEditor: require('@dmc4719/ckeditor5-custom-build/build/ckeditor')
+    console.log('loadCkEditor', editorLoaded, editorRef)
+    if(!editorRef?.current?.CKEditor){
+      editorRef.current = {
+        CKEditor: require('@ckeditor/ckeditor5-react').CKEditor,
+        ClassicEditor: require('@dmc4719/ckeditor5-custom-build/build/ckeditor')
+      }
     }
+   
     setEditorLoaded(true)
   }
 
   useEffect(() => {
     loadCkEditor()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <>
@@ -58,7 +62,6 @@ function CreatePost () {
         <div className='editor my-4'>
           {editorLoaded ? (
             <CKEditor
-              ref={editor}
               config={CONFIG}
               editor={ClassicEditor}
               data='<p>Hello from CKEditor 5!</p>'

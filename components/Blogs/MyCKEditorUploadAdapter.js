@@ -14,19 +14,19 @@ export default class MyCKEditorUploadAdapter extends Component {
           const formData = new FormData()
           formData.append('file', file)
 
-          // fetch('http://localhost:5000/api/posts/uploadfiles', {
-          //   method: 'POST',
-          //   body: formData,
-          //   // headers: {
-          //   //   'content-type': 'multipart/form-data'
-          //   // }
-          // })
-          //   .then(res => res.json())
-          //   .then(data => {
-          //     console.log(data)
-          //     resolve({ url: 'http://localhost:5000/' + data.url })
-          //   })
-            resolve({ url: URL.createObjectURL(file)  })
+          fetch('http://localhost:5000/api/posts/uploadfiles', {
+            method: 'POST',
+            body: formData
+            // headers: {
+            //   'content-type': 'multipart/form-data'
+            // }
+          })
+            .then(res => res.json())
+            .then(data => {
+              console.log(data)
+              resolve({ url: 'http://localhost:5000/' + data.url })
+            })
+          // resolve({ url: URL.createObjectURL(file)  })
           console.log(file)
           console.log('reached here')
         })
