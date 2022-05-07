@@ -1,27 +1,29 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { CONFIG } from '../../../components/Blogs/CKeditorConfig'
 import MyCKEditorUploadAdapter from '../../../components/Blogs/MyCKEditorUploadAdapter'
-import Sidebar from '../../../components/Dashboard/Sidebar'
-import Header from '../../../components/Dashboard/Header'
 import Layout from '../../../components/Dashboard/Layout'
-import withAuth from '../../../hoc/WithAuth'
 
 function CreatePost () {
   const editor = useRef(null)
   const editorRef = useRef()
   const [editorLoaded, setEditorLoaded] = useState(false)
   const { CKEditor, ClassicEditor } = editorRef.current || {}
+  const [initialLoad, setInitialLoad] = useState(true)
   const [editorValue, setEditorValue] = useState({
     value: '',
     message: ''
   })
 
-  useEffect(() => {
+  const loadCkEditor = () => {
     editorRef.current = {
       CKEditor: require('@ckeditor/ckeditor5-react').CKEditor,
       ClassicEditor: require('@dmc4719/ckeditor5-custom-build/build/ckeditor')
     }
     setEditorLoaded(true)
+  }
+
+  useEffect(() => {
+    loadCkEditor()
   }, [])
   return (
     <>
@@ -101,12 +103,9 @@ function CreatePost () {
   )
 }
 
-const CreateWithAuth = withAuth(CreatePost)
-CreateWithAuth.getLayout = function getLayout (children) {
+// const CreateWithAuth = withAuth(CreatePost)
+CreatePost.getLayout = function getLayout (children) {
   return <Layout>{children}</Layout>
 }
 
-
-
-
-export default CreateWithAuth
+export default CreatePost

@@ -14,9 +14,7 @@ function MyApp ({ Component, pageProps }) {
 
   return getLayout(
     <>
-      <AnimateSharedLayout>
-        <Component {...pageProps} />
-      </AnimateSharedLayout>
+      <Component {...pageProps} />
       <ToastContainer
         position='top-right'
         autoClose={3000}
