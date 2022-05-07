@@ -1,7 +1,6 @@
 import fetch from 'isomorphic-unfetch'
 import { motion } from 'framer-motion'
 import Header from '../../components/Home/Header/Header'
-import Link from 'next/link'
 
 let easing = [0.6, -0.05, 0.01, 0.99]
 
