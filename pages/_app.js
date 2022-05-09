@@ -1,16 +1,11 @@
 import { wrapper } from '../redux/store'
-import { AnimateSharedLayout } from 'framer-motion'
 import { ToastContainer } from 'react-toastify'
 import '../styles/globals.css'
 import '../styles/custom.scss'
 
 function MyApp ({ Component, pageProps }) {
   const getLayout = Component.getLayout || (page => page)
-  // return (
-  //   <AnimateSharedLayout>
-  //     <Component {...pageProps} />
-  //   </AnimateSharedLayout>
-  // )
+
 
   return getLayout(
     <>

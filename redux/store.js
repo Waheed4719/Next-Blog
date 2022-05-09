@@ -17,9 +17,12 @@ const masterReducer = (state, action) => {
   }
 }
 
-export const makeStore = () =>
-  configureStore({
-    reducer: masterReducer
-  })
+export const makeStore = preloadedState =>
+  configureStore(
+    {
+      reducer: masterReducer
+    },
+    preloadedState
+  )
 
 export const wrapper = createWrapper(makeStore, { debug: true })

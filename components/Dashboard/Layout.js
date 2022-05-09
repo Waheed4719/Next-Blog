@@ -8,7 +8,7 @@ function Layout ({ children }) {
     <div>
       <Header />
       <Sidebar />
-      <main className='w-full md:w-[calc(100%-220px)] ml-auto'>{children}</main>
+      <main className=' w-full pl-[220px] '>{children}</main>
     </div>
   )
 }

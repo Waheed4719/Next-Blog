@@ -15,24 +15,24 @@ function CreatePost () {
 
   const loadCkEditor = () => {
     console.log('loadCkEditor', editorLoaded, editorRef)
-    if(!editorRef?.current?.CKEditor){
+    if (!editorRef?.current?.CKEditor && typeof window !== undefined) {
       editorRef.current = {
         CKEditor: require('@ckeditor/ckeditor5-react').CKEditor,
         ClassicEditor: require('@dmc4719/ckeditor5-custom-build/build/ckeditor')
       }
     }
-   
+
     setEditorLoaded(true)
   }
 
   useEffect(() => {
     loadCkEditor()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <>
       <div className='w-full mx-auto p-6 '>
-        <h2 className='text-2xl mb-2'>Create Blog</h2>
+        <h2 className='text-2xl mb-2'>Create New Blog</h2>
         <div className='flex items-center gap-4'>
           <p className=''>
             Proident dolor nisi duis ullamco ipsum voluptate amet reprehenderit
@@ -81,6 +81,7 @@ function CreatePost () {
           ) : (
             <div>...Editor loading</div>
           )}
+
         </div>
         <div className='mt-4'>
           <h3 className='text-md mt-4 text-gray-500'>Video Url</h3>

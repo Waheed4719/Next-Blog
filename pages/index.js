@@ -6,8 +6,7 @@ import Image from 'next/image'
 import Card from '../components/Blogs/Card-design-2'
 import Header from '../components/Home/Header/Header'
 import styles from '../styles/Home.module.css'
-import {images, posts, animations} from '../assets/constants'
-
+import { images, posts, animations } from '../assets/constants'
 
 const carLightsOff = '../static/images/car.png'
 const carLightsOn = '../static/images/car-lights-on.png'
@@ -37,7 +36,6 @@ function Home (props) {
             // loader={myLoader}
             unoptimized={true}
             objectFit='cover'
-            
           />
           <div className='container mx-auto w-full h-full relative'>
             <div className='w-fit absolute  top-[50%] translate-y-[-50%] md:translate-y-[0%] md:top-[22%] left-0 right-0 bg-opacity-30 bg-black p-8 rounded-md mx-4'>
@@ -83,7 +81,7 @@ function Home (props) {
         </div>
       </div>
 
-      <div className='container flex justify-between w-88 px-4 items-center'>
+      <div className='container mx-auto flex justify-between w-88 px-4 items-center'>
         <h3 style={{ color: '#0d1063' }} className='text-3xl font-semibold'>
           The Science behind SmartUV
         </h3>
@@ -105,16 +103,17 @@ function Home (props) {
       <div className={`${styles.animatedCar} mt-4`}>
         <div className={styles.sky}>
           <div className={styles.surface}></div>
-       
-            <img 
-            className={styles.car} onClick={() => setCarOn(!carOn)}
-              src={carOn ? carLightsOn : carLightsOff}
-              alt='car'
-              // loader={myLoader}
-            />
+
+          <img
+            className={styles.car}
+            onClick={() => setCarOn(!carOn)}
+            src={carOn ? carLightsOn : carLightsOff}
+            alt='car'
+            // loader={myLoader}
+          />
         </div>
       </div>
-      <div className='container py-10 px-4 gap-4 grid-rows-4 md:grid-rows-3 grid-cols-1 md:grid-cols-3 hidden  md:grid  w-88 mx-auto '>
+      <div className='container py-10 px-4 gap-4 grid-rows-4 md:grid-rows-3 grid-cols-1 md:grid-cols-3 hidden  md:grid mt-4 w-88 mx-auto '>
         <div className='gap-4 grid-cols-1 md:grid-cols-1 row-span-3  flex flex-col md:grid '>
           {posts?.slice(0, 3).map((item, index) => (
             <div
@@ -141,6 +140,7 @@ function Home (props) {
           ))}
         </div>
       </div>
+  
     </div>
   )
 }

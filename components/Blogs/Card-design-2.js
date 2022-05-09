@@ -44,14 +44,14 @@ function Card ({
             {description?.substring(0, charLength) + '...'}
           </p>
           {buttonType === 'linkTag' ? (
-            <Link href={`/posts/${id}`} passhref>
+            <Link href={`/posts/`} passhref>
               <a className='underline  mt-2 text-sm text-sky-500'>
                 Read Article
               </a>
             </Link>
           ) : (
             <button
-              onClick={() => router.push(`/posts/${id}`)}
+              // onClick={() => router.push(`/posts/${id}`)}
               className='border-solid border-2 border-sky-500 w-fit py-1 px-4 rounded-md my-4 text-sm text-sky-500'
             >
               Read Article
